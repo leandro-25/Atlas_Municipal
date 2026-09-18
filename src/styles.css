@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-background: #0b0c0b;
+  --color-foreground: #eceeea;
+  --color-card: #141614;
+  --color-card-foreground: #eceeea;
+  --color-popover: #191c19;
+  --color-popover-foreground: #eceeea;
+  --color-primary: #d7ddd4;
+  --color-primary-foreground: #0b0c0b;
+  --color-secondary: #1c201c;
+  --color-secondary-foreground: #eceeea;
+  --color-muted: #1c201c;
+  --color-muted-foreground: #8b9188;
+  --color-accent: #232823;
+  --color-accent-foreground: #eceeea;
+  --color-destructive: #c17a6a;
+  --color-border: color-mix(in oklab, #eceeea 12%, transparent);
+  --color-input: color-mix(in oklab, #eceeea 14%, transparent);
+  --color-ring: #c5cdc4;
+  --color-chart-1: #d7ddd4;
+  --color-chart-2: #7d8c82;
+  --color-chart-3: #b9c4bc;
+  --color-chart-4: #4a5850;
+  --color-chart-5: #c17a6a;
+  --color-success: #8fbf9a;
+  --color-warning: #c4a574;
+
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Newsreader", "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius: 12px;
+
+  --shadow-border: 0 0 0 1px color-mix(in oklab, #eceeea 8%, transparent);
+  --shadow-border-hover: 0 0 0 1px color-mix(in oklab, #eceeea 14%, transparent);
+
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.enter {
+  animation: enter-up 400ms var(--ease-smooth-out) both;
+}
+
+.enter-1 {
+  animation-delay: 40ms;
+}
+.enter-2 {
+  animation-delay: 80ms;
+}
+.enter-3 {
+  animation-delay: 120ms;
+}
+.enter-4 {
+  animation-delay: 160ms;
+}
+.enter-5 {
+  animation-delay: 200ms;
+}
+.enter-6 {
+  animation-delay: 240ms;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
